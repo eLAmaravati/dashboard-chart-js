@@ -1,0 +1,148 @@
+// Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+// Variable
+$greenColor: #20D1A8;
+$whiteColor: #fefefe;
+$blueColor: #463BFB;
+$lightBlueColor: #6690FF;
+$bgColor: #F2F5FA;
+
+
+// Global
+body {
+  background-color: $bgColor;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+Layout
+.main {
+  padding: 20px 40px;
+}
+
+.sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: $blueColor;
+  padding: 20px 40px;
+
+  a {
+    color: $whiteColor;
+  }
+}
+
+.content {
+  padding: 0;
+  // margin-left: 250px;
+  padding-left: 250px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 40px;
+  padding: 40px;
+
+  
+}
+
+// Navbar
+.navbar {
+  padding: 20px;
+  background-color: $lightBlueColor;
+}
+
+.section {
+  background-color: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 10px 2px 80px rgba(0,0,0,0.1);
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__table {
+    margin-top: 40px;
+  }
+
+  &__stacked {
+    .progress-chart {
+      height: 100%;
+    }
+  }
+
+  &__circle {
+    margin-top: 40px;
+    display: flex;
+  }
+
+  &__custom {
+    background-color: #20D1A8;
+    border-radius: 14px;
+    margin-top: 40px;
+    padding: 20px;
+    color: $whiteColor;
+  }
+}
+
+
+// Circle chart
+.circle-chart {
+  height: 100%;
+  width: 120px;
+}
+
+// Tabel
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #e5e5e5;
+    }
+
+td:first-child {
+  text-align: left;
+  font-weight: bold;
+}
+
+.table-sales {
+  font-size: 14px;
+
+  thead {
+  background-color: $bgColor;
+  color: #20D1A8;
+  font-weight: bold;
+  border-bottom: 1px solid $greenColor;
+  text-align: center;
+}
+}
+
+

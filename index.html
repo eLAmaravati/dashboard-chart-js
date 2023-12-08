@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Latihan</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="src/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="src/favicon_io/site.webmanifest">
+
+    <!-- Uicons -->
+    <link rel='stylesheet'
+      href='https://cdn-uicons.flaticon.com/2.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/style.css">
+  </head>
+
+  <body>
+    <header class="header">
+
+    </header>
+
+    <main class="main">
+      <nav class="sidenav">
+
+        <!-- Navigasi -->
+        <ul class="menu">
+          <li class="menu__item">
+            <a href="#" class="menu__link">
+              <span class="menu__icon"><i class="fi fi-sr-home"></i></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link">
+              <span class="menu__icon"><i class="fi fi-sr-home"></i></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link">
+              <span class="menu__icon"><i class="fi fi-sr-home"></i></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link">
+              <span class="menu__icon"><i class="fi fi-sr-home"></i></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link">
+              <span class="menu__icon"><i class="fi fi-sr-home"></i></span>
+              Dashboard
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Start Content -->
+      <div class="content">
+        <!-- Navbar -->
+        <div class="navbar uk-container">
+          <form class="uk-search uk-search-default">
+            <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+            <input class="uk-search-input" type="search" placeholder="Search" aria-label="Search">
+          </form>
+        </div>
+
+        <!-- Content dashboard -->
+        <div class="dashboard">
+          <div class="dashboard__left">
+            <section class="section section__bar-chart">
+              <h2 class="section__title">Project Bar Chart</h2>
+              <canvas id="barChart" aria-label="Project Overview Bar Chart" role="img" width="500"></canvas>
+            </section>
+
+            <!-- Tabel -->
+            <section class="section section__table">
+              <h2 class="section__title">Tabel Penjualan Tahun 2023</h2>
+              <table class="table-sales">
+                <thead>
+                  <tr>
+                    <th>Bulan</th>
+                    <th>Penjualan Sepatu (IDR)</th>
+                    <th>Penjualan Baju (IDR)</th>
+                    <th>Penjualan Celana (IDR)</th>
+                    <th>Total Penjualan (IDR)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Januari</td>
+                    <td>150,000,000</td>
+                    <td>200,000,000</td>
+                    <td>150,000,000</td>
+                    <td>500,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>Februari</td>
+                    <td>180,000,000</td>
+                    <td>250,000,000</td>
+                    <td>170,000,000</td>
+                    <td>600,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>Maret</td>
+                    <td>200,000,000</td>
+                    <td>300,000,000</td>
+                    <td>250,000,000</td>
+                    <td>750,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>April</td>
+                    <td>220,000,000</td>
+                    <td>350,000,000</td>
+                    <td>230,000,000</td>
+                    <td>800,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>Mei</td>
+                    <td>250,000,000</td>
+                    <td>380,000,000</td>
+                    <td>270,000,000</td>
+                    <td>900,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>Juni</td>
+                    <td>230,000,000</td>
+                    <td>320,000,000</td>
+                    <td>300,000,000</td>
+                    <td>850,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>Juli</td>
+                    <td>180,000,000</td>
+                    <td>250,000,000</td>
+                    <td>270,000,000</td>
+                    <td>700,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>Agustus</td>
+                    <td>190,000,000</td>
+                    <td>280,000,000</td>
+                    <td>250,000,000</td>
+                    <td>720,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>September</td>
+                    <td>170,000,000</td>
+                    <td>260,000,000</td>
+                    <td>250,000,000</td>
+                    <td>680,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>Oktober</td>
+                    <td>200,000,000</td>
+                    <td>350,000,000</td>
+                    <td>300,000,000</td>
+                    <td>850,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>November</td>
+                    <td>220,000,000</td>
+                    <td>380,000,000</td>
+                    <td>350,000,000</td>
+                    <td>950,000,000</td>
+                  </tr>
+                  <tr>
+                    <td>Desember</td>
+                    <td>250,000,000</td>
+                    <td>400,000,000</td>
+                    <td>350,000,000</td>
+                    <td>5,00,000,000</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </section>
+          </div>
+
+
+          <!-- Dashboard right -->
+          <div class="dashboard__right">
+            <section class="section section__stacked">
+              <div class="progress-chart">
+                <h2 class="section__title">Project Stacked Chart</h2>
+                <canvas id="horizontalBar" aria-label="Project Overview Bar Chart" role="img"></canvas>
+              </div>
+            </section>
+
+            <section class="section__custom">
+              <h2 class="section__title">Semacam Judul</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias labore cumque sit iusto quae quod eos
+                asperiores autem numquam. Aspernatur assumenda nostrum dignissimos culpa doloremque iusto laudantium
+                provident saepe tempore commodi. Excepturi, sed odio! Eaque, iste possimus. Dignissimos impedit nihil
+                laborum.</p>
+            </section>
+
+            <section class="section section__circle">
+              <div class="circle-chart">
+                <canvas id="circleChart1"></canvas>
+              </div>
+              <div class="circle-chart">
+                <canvas id="circleChart2"></canvas>
+              </div>
+              <div class="circle-chart">
+                <canvas id="circleChart3"></canvas>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+
+  <!-- Chartjs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+  <script type="module" src="/src/js/script.js"></script>
+
+</html>
