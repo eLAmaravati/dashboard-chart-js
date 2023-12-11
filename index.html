@@ -18,193 +18,174 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/css/style.css">
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <link rel="stylesheet" href="/src/css/style.css">
   </head>
 
   <body>
-    <header class="header">
-
-    </header>
 
     <main class="main">
-      <nav class="sidenav">
+      <nav id="sidenav" class="sidenav" x-data="{ open: true }" :style="{ 'left': open ? '0' : '-250px' }">
+
+        <a href="#" @click="open = !open">☰ Toggle Sidenav</a>
+        <div class="sidenav__logo">
+          <i class="fi fi-sr-apps"></i>
+          <h1 class="sidenav__logo__title">Dashboard Penjualan</h1>
+        </div>
 
         <!-- Navigasi -->
         <ul class="menu">
           <li class="menu__item">
             <a href="#" class="menu__link">
-              <span class="menu__icon"><i class="fi fi-sr-home"></i></span>
-              Dashboard
+              <span class="menu__icon"><i class="fi fi-sr-chart-simple"></i></span>
+              Bar Chart
+            </a>
+          </li>
+          <li class="menu__item">
+            <a href="#sectionTable" class="menu__link">
+              <span class="menu__icon"><i class="fi fi-sr-table-columns"></i></span>
+              Table
             </a>
           </li>
           <li class="menu__item">
             <a href="#" class="menu__link">
-              <span class="menu__icon"><i class="fi fi-sr-home"></i></span>
-              Dashboard
+              <span class="menu__icon"><i class="fi fi-sr-chart-pie"></i></span>
+              Pie Chart
             </a>
           </li>
           <li class="menu__item">
             <a href="#" class="menu__link">
-              <span class="menu__icon"><i class="fi fi-sr-home"></i></span>
-              Dashboard
+              <span class="menu__icon badge"><i class="fi fi-sr-envelope"></i></span>
+              Messages
             </a>
           </li>
           <li class="menu__item">
             <a href="#" class="menu__link">
-              <span class="menu__icon"><i class="fi fi-sr-home"></i></span>
-              Dashboard
+              <span class="menu__icon"><i class="fi fi-sr-user"></i></span>
+              Account
+            </a>
+          </li>
+
+
+          <li class="menu__item">
+            <a href="#" class="menu__link">
+              <span class="menu__icon"><i class="fi fi-sr-calendar-clock"></i></span>
+              Calendar
             </a>
           </li>
           <li class="menu__item">
-            <a href="#" class="menu__link">
-              <span class="menu__icon"><i class="fi fi-sr-home"></i></span>
-              Dashboard
+            <a href="/report.html" class="menu__link">
+              <span class="menu__icon"><i class="fi fi-sr-notebook"></i></span>
+              Report
             </a>
           </li>
         </ul>
+
+        <div class="sidenav__drawer">
+          <small>Developed by Langit Amaravati</small>
+        </div>
       </nav>
 
       <!-- Start Content -->
       <div class="content">
         <!-- Navbar -->
-        <div class="navbar uk-container">
+        <div class="navbar">
           <form class="uk-search uk-search-default">
             <a href="" class="uk-search-icon-flip" uk-search-icon></a>
             <input class="uk-search-input" type="search" placeholder="Search" aria-label="Search">
           </form>
+
+          <div class="user">
+            <p class="user__name">Hi, Langit Amaravati</p>
+            <div class="user__avatar"><i class="fi fi-sr-woman-head"></i></div>
+          </div>
         </div>
 
         <!-- Content dashboard -->
         <div class="dashboard">
           <div class="dashboard__left">
+
             <section class="section section__bar-chart">
-              <h2 class="section__title">Project Bar Chart</h2>
-              <canvas id="barChart" aria-label="Project Overview Bar Chart" role="img" width="500"></canvas>
+              <h2 class="section__title">Grafik Penjualan Tahun 2023</h2>
+              <figure class="chart chart__bar">
+                <canvas id="grafikPenjualan" aria-label="Grafik penjualan tahun 2023" role="img"></canvas>
+              </figure>
             </section>
 
+            <div id="totalPenjualan"></div>
+
             <!-- Tabel -->
-            <section class="section section__table">
+            <section class="section section__table" id="sectionTable">
               <h2 class="section__title">Tabel Penjualan Tahun 2023</h2>
-              <table class="table-sales">
+
+              <table id="tabelPenjualan" class="table-sales">
                 <thead>
                   <tr>
-                    <th>Bulan</th>
-                    <th>Penjualan Sepatu (IDR)</th>
-                    <th>Penjualan Baju (IDR)</th>
-                    <th>Penjualan Celana (IDR)</th>
-                    <th>Total Penjualan (IDR)</th>
+                    <th class="table-sales__column" @click="sortTable('name')">Bulan <button class="button button__sort"
+                        type="button" aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
+                    <th class="table-sales__column" id="headerSepatu">Sepatu <button class="button button__sort"
+                        type="button" aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
+                    <th class="table-sales__column">Baju<button class="button button__sort" type="button"
+                        aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
+                    <th class="table-sales__column">Celana<button class="button button__sort" type="button"
+                        aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
+                    <th class="table-sales__column">Total Penjualan<button class="button button__sort" type="button"
+                        aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Januari</td>
-                    <td>150,000,000</td>
-                    <td>200,000,000</td>
-                    <td>150,000,000</td>
-                    <td>500,000,000</td>
-                  </tr>
-                  <tr>
-                    <td>Februari</td>
-                    <td>180,000,000</td>
-                    <td>250,000,000</td>
-                    <td>170,000,000</td>
-                    <td>600,000,000</td>
-                  </tr>
-                  <tr>
-                    <td>Maret</td>
-                    <td>200,000,000</td>
-                    <td>300,000,000</td>
-                    <td>250,000,000</td>
-                    <td>750,000,000</td>
-                  </tr>
-                  <tr>
-                    <td>April</td>
-                    <td>220,000,000</td>
-                    <td>350,000,000</td>
-                    <td>230,000,000</td>
-                    <td>800,000,000</td>
-                  </tr>
-                  <tr>
-                    <td>Mei</td>
-                    <td>250,000,000</td>
-                    <td>380,000,000</td>
-                    <td>270,000,000</td>
-                    <td>900,000,000</td>
-                  </tr>
-                  <tr>
-                    <td>Juni</td>
-                    <td>230,000,000</td>
-                    <td>320,000,000</td>
-                    <td>300,000,000</td>
-                    <td>850,000,000</td>
-                  </tr>
-                  <tr>
-                    <td>Juli</td>
-                    <td>180,000,000</td>
-                    <td>250,000,000</td>
-                    <td>270,000,000</td>
-                    <td>700,000,000</td>
-                  </tr>
-                  <tr>
-                    <td>Agustus</td>
-                    <td>190,000,000</td>
-                    <td>280,000,000</td>
-                    <td>250,000,000</td>
-                    <td>720,000,000</td>
-                  </tr>
-                  <tr>
-                    <td>September</td>
-                    <td>170,000,000</td>
-                    <td>260,000,000</td>
-                    <td>250,000,000</td>
-                    <td>680,000,000</td>
-                  </tr>
-                  <tr>
-                    <td>Oktober</td>
-                    <td>200,000,000</td>
-                    <td>350,000,000</td>
-                    <td>300,000,000</td>
-                    <td>850,000,000</td>
-                  </tr>
-                  <tr>
-                    <td>November</td>
-                    <td>220,000,000</td>
-                    <td>380,000,000</td>
-                    <td>350,000,000</td>
-                    <td>950,000,000</td>
-                  </tr>
-                  <tr>
-                    <td>Desember</td>
-                    <td>250,000,000</td>
-                    <td>400,000,000</td>
-                    <td>350,000,000</td>
-                    <td>5,00,000,000</td>
-                  </tr>
+
                 </tbody>
               </table>
 
+              <div class="section__custom margin-top--40">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, dolore reprehenderit fugiat fugit et
+                earum eligendi exercitationem, nam, laboriosam modi quasi asperiores corporis unde esse minus culpa
+                voluptates numquam? Ut.
+              </div>
             </section>
+
+            <!-- Line chart -->
+            <section class="section section__line-chart margin-top--40">
+              <h2 class="section__title">Tren Penjualan Tahun 2023</h2>
+              <div class="chart line-chart">
+                <canvas id="lineChart"></canvas>
+              </div>
+            </section>
+
+            <section class="section section__donut-chart margin-top--40">
+              <h2 class="section__title">Bermacam-macam Pie Chart</h2>
+              <div class="chart chart__lingkaran">
+                <canvas id="lingkaran"></canvas>
+              </div>
+              <div class="chart chart__lingkaran">
+                <canvas id="lingkaran2"></canvas>
+              </div>
+              <div class="chart chart__lingkaran">
+                <canvas id="lingkaran3"></canvas>
+              </div>
+            </section>
+
+
           </div>
 
 
           <!-- Dashboard right -->
           <div class="dashboard__right">
-            <section class="section section__stacked">
-              <div class="progress-chart">
-                <h2 class="section__title">Project Stacked Chart</h2>
-                <canvas id="horizontalBar" aria-label="Project Overview Bar Chart" role="img"></canvas>
-              </div>
-            </section>
-
             <section class="section__custom">
               <h2 class="section__title">Semacam Judul</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias labore cumque sit iusto quae quod eos
-                asperiores autem numquam. Aspernatur assumenda nostrum dignissimos culpa doloremque iusto laudantium
-                provident saepe tempore commodi. Excepturi, sed odio! Eaque, iste possimus. Dignissimos impedit nihil
-                laborum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel unde nisi minima blanditiis fugiat
+                veritatis ut rerum Lorem ipsum dolor sit amet! Nihil, sit. Harum eligendi quam autem sint
+                quibusdam conterkk distinctio
+                mollitia laborum
+                distinctio.</p>
             </section>
 
             <section class="section section__circle">
+
               <div class="circle-chart">
                 <canvas id="circleChart1"></canvas>
               </div>
@@ -215,16 +196,157 @@
                 <canvas id="circleChart3"></canvas>
               </div>
             </section>
+
+            <section class="section section__progress margin-top--40">
+              <h2 class="section__title">Progress Bar</h2>
+              <div class="progress-chart">
+                <canvas id="horizontalBar" aria-label="Project Overview Bar Chart" role="img"></canvas>
+                <figcaption>Progress bar dengan Chart.js</figcaption>
+              </div>
+
+              <figure class="progress-bar">
+                <div class="progress-bar__container">
+                  <div class="progress-bar__item" data-bar="85">
+                    Processing 85%
+                  </div>
+                </div>
+                <div class="progress-bar__container">
+                  <div class="progress-bar__item" data-bar="35">
+                    Processing 35%
+                  </div>
+                </div>
+                <div class="progress-bar__container">
+                  <div class="progress-bar__item" data-bar="60">
+                    Processing 60%
+                  </div>
+                </div>
+                <div class="progress-bar__container">
+                  <div class="progress-bar__item" data-bar="77">
+                    Processing 77%
+                  </div>
+                </div>
+                <div class="progress-bar__container">
+                  <div class="progress-bar__item" data-bar="43">
+                    Processing 43%
+                  </div>
+                </div>
+                <div class="progress-bar__container">
+                  <div class="progress-bar__item" data-bar="87">
+                    Processing 87%
+                  </div>
+                </div>
+
+                <figcaption>Progress bar dengan vanilla JavaScript</figcaption>
+              </figure>
+
+
+            </section>
+
+
           </div>
         </div>
       </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <small>Coded by Langit Amaravati</small>
+    </footer>
+
+
+    <!-- Chartjs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <!-- <script src="/src/js/main.js"></script> -->
+    <script type="module" src="/src/js/script.js"></script>
+    <script src="/src/js/progress.js"></script>
+    <!-- <script type="module" src="/src/js/progress.mjs"></script> -->
+
+
+
+    <script>
+      // Sorting table
+      /**
+       * 
+       * @param {HTMLTableElement} table 
+       * @param {number} column 
+       * @param {boolean} asc 
+       */
+
+      let sortDirection = 1;
+      const monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+
+      function sortTable(tableId, column) {
+        let table, rows, shouldSwitch, i, x, y;
+        table = document.getElementById(tableId);
+        let switching = true;
+
+        while (switching) {
+          switching = false;
+          rows = table.rows;
+
+          for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+
+            x = rows[i].getElementsByTagName("TD")[column];
+            y = rows[i + 1].getElementsByTagName("TD")[column];
+
+            if (column == 0) { // If sorting the month column
+              let xMonthIndex = monthNames.indexOf(x.innerHTML);
+              let yMonthIndex = monthNames.indexOf(y.innerHTML);
+
+              if (sortDirection == 1) {
+                if (xMonthIndex > yMonthIndex) {
+                  shouldSwitch = true;
+                  break;
+                }
+              } else if (sortDirection == -1) {
+                if (xMonthIndex < yMonthIndex) {
+                  shouldSwitch = true;
+                  break;
+                }
+              }
+            } else {
+              if (sortDirection == 1) {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                  shouldSwitch = true;
+                  break;
+                }
+              } else if (sortDirection == -1) {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                  shouldSwitch = true;
+                  break;
+                }
+              }
+            }
+          }
+
+          if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+          }
+        }
+      }
+
+      // Get the table headers
+      let headers = document.getElementById('tabelPenjualan').rows[0].cells;
+
+      // Add event listener to each header
+      for (let i = 0; i < headers.length; i++) {
+        headers[i].addEventListener('click', function () {
+          sortTable('tabelPenjualan', i);
+          sortDirection = -sortDirection;
+        });
+      }
+
+
+
+    </script>
+
+
+
+
+
   </body>
-
-
-  <!-- Chartjs -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-  <script type="module" src="/src/js/script.js"></script>
 
 </html>

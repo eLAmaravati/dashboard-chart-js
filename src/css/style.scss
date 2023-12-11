@@ -11,9 +11,10 @@
 $greenColor: #20D1A8;
 $whiteColor: #fefefe;
 $blueColor: #463BFB;
+$yellowColor: rgb(255, 205, 86);
 $lightBlueColor: #6690FF;
 $bgColor: #F2F5FA;
-
+$sidenavWidth: 250px;
 
 // Global
 body {
@@ -26,25 +27,62 @@ a {
   text-decoration: none;
 }
 
+figcaption {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 10px;
+  font-weight: 600;
+}
 
-Layout
+// Button
+button {
+  cursor: pointer;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.button {
+  // &__sort {
+  //   color: $blueColor;
+  // }
+}
+
+// Layout
 .main {
   padding: 20px 40px;
 }
 
+
+// Sidenav
 .sidenav {
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 250px;
+  width: $sidenavWidth;
   background-color: $blueColor;
   padding: 20px 40px;
+  color: $whiteColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   a {
     color: $whiteColor;
   }
 }
+
+.menu {
+  list-style-type: none;
+
+  &__link {
+    display: flex;
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+
 
 .content {
   padding: 0;
@@ -54,7 +92,7 @@ Layout
 
 .dashboard {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto;
   gap: 40px;
   padding: 40px;
 
@@ -64,7 +102,28 @@ Layout
 // Navbar
 .navbar {
   padding: 20px;
-  background-color: $lightBlueColor;
+  // background-color: $lightBlueColor;
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+
+.user {
+  display: flex;
+  justify-content: center;
+
+  &__avatar {
+    height: 50px;
+    width: 50px;
+    background-color: $blueColor;
+    border-radius: 50%;
+    margin-left: 40px;
+
+    .fi {
+      color: #fff;
+    }
+  }
 }
 
 .section {
@@ -82,20 +141,20 @@ Layout
   }
 
   &__stacked {
-    .progress-chart {
-      height: 100%;
-    }
+    margin-top: 20px;
+    height: auto;
   }
 
   &__circle {
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__custom {
     background-color: #20D1A8;
     border-radius: 14px;
-    margin-top: 40px;
     padding: 20px;
     color: $whiteColor;
   }
@@ -104,7 +163,7 @@ Layout
 
 // Circle chart
 .circle-chart {
-  height: 100%;
+  height: 120px;
   width: 120px;
 }
 
@@ -116,7 +175,7 @@ table {
 
 th, td {
   border-bottom: 1px solid #ddd;
-  text-align: left;
+  text-align: center;
   padding: 8px;
 }
 
@@ -142,7 +201,109 @@ td:first-child {
   font-weight: bold;
   border-bottom: 1px solid $greenColor;
   text-align: center;
-}
+  }
+
+  // &__column {
+  //   display: flex;
+  //   flex-direction: row;
+  // }
 }
 
 
+// Margin
+.margin-top {
+  &--40 {
+    margin-top: 40px;
+  }
+}
+
+.chart {
+  padding-top: 20px;
+
+  &__lingkaran {
+    height: 300px;
+    width: 300px;
+  }
+}
+
+.section__donut-chart {
+  display: grid;
+  grid-template-columns: repeat(5 , 1fr);
+  gap: 20px;
+
+  h2 {
+    grid-column: span 5;
+  }
+}
+
+.progress-chart {
+  height: 300px;
+  width: 100%;
+}
+
+.section__progress {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  h2 {
+    grid-column: span 2;
+  }
+}
+
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  
+  &__container {
+  width: 100%;
+  background-color: #f2f2f2;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  height: 20px;
+  opacity: 0; 
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  &:nth-child(3n+1) .progress-bar__item {
+    background-color: $greenColor;
+  }
+  &:nth-child(3n+2) .progress-bar__item {
+    background-color: $blueColor;
+  }
+  &:nth-child(3n) .progress-bar__item {
+    background-color: $yellowColor;
+  }
+  }
+
+  &__item {
+  width: 0;
+  height: 100%;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0;
+  transition: width 1s ease-in-out;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+}
+
+/* Tambahkan animasi ketika container muncul */
+.progress-bar__container.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// Footer
+.footer {
+  margin-left: $sidenavWidth;
+  padding: 20px 40px;
+  text-align: center;
+}

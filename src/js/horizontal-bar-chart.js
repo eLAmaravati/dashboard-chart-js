@@ -1,5 +1,3 @@
-Chart.register(ChartDataLabels);
-
 export function createHorizontalBarChart(elementId, chartData, chartOptions) {
   const chartElement = document.getElementById(elementId);
   return new Chart(chartElement, {
@@ -11,17 +9,17 @@ export function createHorizontalBarChart(elementId, chartData, chartOptions) {
 
 // Data untuk horizontal bar
 const data = {
-  labels: ['Jan', 'Feb', 'March', 'April', 'Jan', 'Feb', 'April', 'Agustus'],
+  labels: ['April', 'Jan', 'Feb', 'April', 'Agustus'],
   datasets: [{
     label: '# Projecst 1',
-    data: [90, 87, 50, 45, 90, 87, 50, 45],
+    data: [90, 87, 50, 45, 90],
     borderWidth: 1,
     backgroundColor: ['#463BFB', '#20D1A8', '#463BFB', '#20D1A8', '#463BFB', '#20D1A8',],
     borderRadius: 20,
     borderSkipped: false,
     categoryPercentage: 0.1,
-    barPercentage: 9,
-    barThickness: 10,
+    barPercentage: 0.9,
+    barThickness: 20,
   },
   ]
 };
@@ -70,6 +68,7 @@ const options = {
       right: 40,
     }
   },
+  plugins: [ChartDataLabels]
 };
 
 // Membuat grafik

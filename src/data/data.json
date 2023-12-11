@@ -1,0 +1,86 @@
+﻿[
+	{
+		"Bulan": "Januari",
+		"Sepatu": 227000000,
+		"Baju": 200000000,
+		"Celana": 150000000,
+		"Total Penjualan": null
+	},
+	{
+		"Bulan": "Februari",
+		"Sepatu": 180000000,
+		"Baju": 280000000,
+		"Celana": 170000000,
+		"Total Penjualan": null
+	},
+	{
+		"Bulan": "Maret",
+		"Sepatu": 200000000,
+		"Baju": 180000000,
+		"Celana": 250000000,
+		"Total Penjualan": null
+	},
+	{
+		"Bulan": "April",
+		"Sepatu": 220000000,
+		"Baju": 250000000,
+		"Celana": 230000000,
+		"Total Penjualan": null
+	},
+	{
+		"Bulan": "Mei",
+		"Sepatu": 250000000,
+		"Baju": 180000000,
+		"Celana": 270000000,
+		"Total Penjualan": null
+	},
+	{
+		"Bulan": "Juni",
+		"Sepatu": 330000000,
+		"Baju": 220000000,
+		"Celana": 300000000,
+		"Total Penjualan": null
+	},
+	{
+		"Bulan": "Juli",
+		"Sepatu": 180000000,
+		"Baju": 250000000,
+		"Celana": 270000000,
+		"Total Penjualan": null
+	},
+	{
+		"Bulan": "Agustus",
+		"Sepatu": 190000000,
+		"Baju": 280000000,
+		"Celana": 250000000,
+		"Total Penjualan": null
+	},
+	{
+		"Bulan": "September",
+		"Sepatu": 170000000,
+		"Baju": 260000000,
+		"Celana": 250000000,
+		"Total Penjualan": null
+	},
+	{
+		"Bulan": "Oktober",
+		"Sepatu": 200000000,
+		"Baju": 210000000,
+		"Celana": 300000000,
+		"Total Penjualan": null
+	},
+	{
+		"Bulan": "November",
+		"Sepatu": 220000000,
+		"Baju": 180000000,
+		"Celana": 250000000,
+		"Total Penjualan": null
+	},
+	{
+		"Bulan": "Desember",
+		"Sepatu": 250000000,
+		"Baju": 200000000,
+		"Celana": 170000000,
+		"Total Penjualan": null
+	}
+]
