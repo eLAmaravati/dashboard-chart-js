@@ -8,11 +8,11 @@ Sama seperti mesin dan bahasa lainnya, JSON mengenali tipe data sebagai string, 
 
 ```json
 {
-		"Bulan": "Juni",
-		"Sepatu": "230,000,000",
-		"Baju": "320,000,000",
-		"Celana": "300,000,000",
-		"Total Penjualan": "850,000,000"
+	"Bulan": "Juni",
+	"Sepatu": "230,000,000",
+	"Baju": "320,000,000",
+	"Celana": "300,000,000",
+	"Total Penjualan": "850,000,000"
 },
 ```
 
@@ -24,19 +24,27 @@ Ya, kita bisa mengkonversi tipe data string menjadi angka dengan JavaScript saat
 
 ```json
 {
-		"Bulan": "Juni",
-		"Sepatu": 230000000,
-		"Baju": 320000000,
-		"Celana": 300000000,
-		"Total Penjualan": null
+	"Bulan": "Juni",
+	"Sepatu": 230000000,
+	"Baju": 320000000,
+	"Celana": 300000000,
+	"Total Penjualan": null
 },
 ```
 
 Total Penjualan diberi nilai `null` karena akan dijumlahkan di dalam tabel. Saya kira cara ini lebih fleksibel agar apabila kita mengubah nilai penjualan di dalam JSON, total penjualan tetap akurat.
 
-## Ekstraksi Data
+## Ekstraksi dan Visualisasi Data
 
 Di dunia nyata, data di dashboard diambil dari back-end. Maka untuk mensimulasikan itu, semua data yang akan dibuat grafik dan tabel diambil dari file JSON. Jadi, data hanya diambil satu kali untuk kemudian diekstraksi ke dalam variabel-variabel yang bisa digunakan oleh Chart.js dan tabel.
+
+Hal lain yang menjadi concern saya ketika melihat berbagai desain dashboard adalah: 
+
+- Perlukah semua grafik itu ditampilkan di dashboard?
+- Apakah grafik itu untuk menunjukkan data atau hanya untuk tujuan visual (supaya desainnya terlihat keren)?
+- In the real world, 
+
+Tapi ya sudahlah ya, itu nanti dipikirkan. Toh, ini cuma latihan.
 
 ## Latihan JavaScript Modules
 
@@ -44,17 +52,19 @@ Untuk membuat satu grafik, dibutuhkan setidaknya 50 baris JavaScript. Selain uku
 
 - `main.js` file JavaScript utama.
 - `data-penjualan.mjs` file JavaScript untuk fetching data dari JSON.
-- `bar-chart.mjs` file untuk membuat grafik batang yang datanya diambil dari `data-penjualan.js`.
-- `tabel.mjs` file untuk membuat tabel, sorting, dan filter. Datanya juga diambil dari `data-penjualan.js`.
-- File lainnya untuk membuat berbagai jenis grafik, semua data diambil dari `data-penjualan.js`.
+- `bar-chart.mjs` file untuk membuat grafik batang yang datanya diambil dari `data-penjualan.mjs`.
+- `table.mjs` file untuk membuat tabel, sorting, dan filter. Datanya juga diambil dari `data-penjualan.mjs`.
+- File lainnya untuk membuat berbagai jenis grafik, semua data diambil dari `data-penjualan.mjs`.
 
-Saya familiar dengan `import` dan `eksport`. Juga tidak masalah apabila yang diimport hanya satu `function` dan data grafiknya statis (hardcode). Tetapi sempat menghadapi kesulitan ketika mendistribusikan data ke berbagai file/module lainnya.
+(Abaikan penamaan file yang campur aduk antara bahasa Inggris dan bahasa Indonesia)
+
+Saya familiar dengan `import` dan `eksport`. Juga tidak masalah apabila yang diimpor hanya satu `function` dan data grafiknya statis (hardcode). Tetapi sempat menghadapi kesulitan ketika mendistribusikan data ke berbagai file/module lainnya.
 
 ## Membuat Grafik Batang dari JSON dengan Chart.js dan Fetch API
 
 Ada banyak cara untuk melakukan HTTP request untuk menampilkan data. Saya menggunakan Fetch API sesuai petunjuk para senior, oh dan sintaksisnya pun lebih singkat.
 
-So far tidak ada masalah. Konfigurasi untuk membuat grafik di Chart.js lebih sederhana daripada Apex Chart. Atau mungkin karena Apex Chart saya gunakan di React.
+Konfigurasi untuk membuat grafik dengan Chart.js lebih sederhana daripada Apex Chart. Atau mungkin karena Apex Chart saya gunakan di React. Di dokumentasinya, 
 
 ## Mengisi Data Tabel dengan Fetch API
 
@@ -90,22 +100,22 @@ Maka saya menggunakan `:nth-child()` modulus. Dalem banget ini menyelamnya. :smi
 .progress-bar {
   ...
   
-  &__container {
-  ...
+&__container {
+...
 
-		&:nth-child(3n+1) .progress-bar__item {
-			background-color: $greenColor;
-		}
-		&:nth-child(3n+2) .progress-bar__item {
-			background-color: $blueColor;
-		}
-		&:nth-child(3n) .progress-bar__item {
-			background-color: $yellowColor;
-		}
-  }
+	&:nth-child(3n+1) .progress-bar__item {
+		background-color: $greenColor;
+	}
+	&:nth-child(3n+2) .progress-bar__item {
+		background-color: $blueColor;
+	}
+	&:nth-child(3n) .progress-bar__item {
+		background-color: $yellowColor;
+	}
+}
 
-  &__item {
-  ...
-  }
+&__item {
+...
+}
 }
 ```

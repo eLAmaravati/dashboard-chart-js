@@ -1,3 +1,4 @@
-node_modules/
+/node_modules
 report.html
 chart.html
+/src/js/backup.js

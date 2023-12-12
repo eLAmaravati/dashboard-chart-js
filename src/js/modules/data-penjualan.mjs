@@ -18,7 +18,7 @@ async function dataPenjualan() {
   totalPenjualanBaju = baju.reduce((total, penjualan) => total + penjualan, 0);
   totalPenjualanCelana = celana.reduce((total, penjualan) => total + penjualan, 0);
 
-  return { bulan, sepatu, baju, celana, totalPenjualanSepatu, totalPenjualanBaju, totalPenjualanCelana };
+  return { bulan, sepatu, baju, celana, totalPenjualanSepatu, totalPenjualanBaju, totalPenjualanCelana }; 
 }
 
 export async function buatChartDariData() {

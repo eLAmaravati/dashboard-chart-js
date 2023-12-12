@@ -27,224 +27,263 @@
 
   <body>
 
+    <!-- Navbar Start -->
+    <nav id="sidenav" class="sidenav" x-data="{ open: true }" :style="{ 'left': open ? '0' : '-250px' }">
+
+      <a href="#" @click="open = !open">☰ Toggle Sidenav</a>
+      <div class="sidenav__logo">
+        <i class="fi fi-sr-apps"></i>
+        <h1 class="sidenav__logo__title">Dashboard Penjualan</h1>
+      </div>
+
+      <!-- Navigasi -->
+      <ul class="menu">
+        <li class="menu__item">
+          <a href="#" class="menu__link">
+            <span class="menu__icon"><i class="fi fi-sr-chart-simple"></i></span>
+            Bar Chart
+          </a>
+        </li>
+        <li class="menu__item">
+          <a href="#sectionTable" class="menu__link">
+            <span class="menu__icon"><i class="fi fi-sr-table-columns"></i></span>
+            Table
+          </a>
+        </li>
+        <li class="menu__item">
+          <a href="#sectionLine" class="menu__link">
+            <span class="menu__icon badge"><i class="fi fi-sr-envelope"></i></span>
+            Line Chart
+          </a>
+        </li>
+        <li class="menu__item">
+          <a href="#sectionPie" class="menu__link">
+            <span class="menu__icon"><i class="fi fi-sr-chart-pie"></i></span>
+            Pie Chart
+          </a>
+        </li>
+        <li class="menu__item">
+          <a href="#sectionProgress" class="menu__link">
+            <span class="menu__icon"><i class="fi fi-sr-user"></i></span>
+            Progress Bar
+          </a>
+        </li>
+
+        <li class="menu__item">
+          <a href="#sectionOther" class="menu__link">
+            <span class="menu__icon"><i class="fi fi-sr-calendar-clock"></i></span>
+            Other
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidenav__drawer">
+        <small>Developed by Langit Amaravati</small>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Main Start -->
     <main class="main">
-      <nav id="sidenav" class="sidenav" x-data="{ open: true }" :style="{ 'left': open ? '0' : '-250px' }">
+      <!-- Navbar -->
+      <div class="navbar">
+        <form class="uk-search uk-search-default">
+          <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+          <input class="uk-search-input" type="search" placeholder="Search" aria-label="Search">
+        </form>
 
-        <a href="#" @click="open = !open">☰ Toggle Sidenav</a>
-        <div class="sidenav__logo">
-          <i class="fi fi-sr-apps"></i>
-          <h1 class="sidenav__logo__title">Dashboard Penjualan</h1>
+        <div class="user">
+          <p class="user__name">Hi, Langit Amaravati</p>
+          <div class="user__avatar"><i class="fi fi-sr-woman-head"></i></div>
         </div>
+      </div>
 
-        <!-- Navigasi -->
-        <ul class="menu">
-          <li class="menu__item">
-            <a href="#" class="menu__link">
-              <span class="menu__icon"><i class="fi fi-sr-chart-simple"></i></span>
-              Bar Chart
-            </a>
-          </li>
-          <li class="menu__item">
-            <a href="#sectionTable" class="menu__link">
-              <span class="menu__icon"><i class="fi fi-sr-table-columns"></i></span>
-              Table
-            </a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">
-              <span class="menu__icon"><i class="fi fi-sr-chart-pie"></i></span>
-              Pie Chart
-            </a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">
-              <span class="menu__icon badge"><i class="fi fi-sr-envelope"></i></span>
-              Messages
-            </a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">
-              <span class="menu__icon"><i class="fi fi-sr-user"></i></span>
-              Account
-            </a>
-          </li>
+      <!-- Dashboard Start -->
+      <div class="dashboard">
+        <section class="section section__bar-chart">
+          <h2 class="section__title">Grafik Penjualan Tahun 2023</h2>
+          <figure class="chart chart__bar">
+            <canvas id="grafikPenjualan" aria-label="Grafik penjualan tahun 2023" role="img"></canvas>
+          </figure>
+        </section>
 
+        <section class="section margin-top--40">
+          <h2 class="section__title">Grafik Total Penjualan Tahun 2023</h2>
+          <figure class="chart">
+            <canvas id="grafikPenjualan2" aria-label="Grafik total penjualan tahun 2023" role="img"></canvas>
+          </figure>
+        </section>
 
-          <li class="menu__item">
-            <a href="#" class="menu__link">
-              <span class="menu__icon"><i class="fi fi-sr-calendar-clock"></i></span>
-              Calendar
-            </a>
-          </li>
-          <li class="menu__item">
-            <a href="/report.html" class="menu__link">
-              <span class="menu__icon"><i class="fi fi-sr-notebook"></i></span>
-              Report
-            </a>
-          </li>
-        </ul>
+        <section class="section margin-top--40">
+          <h2 class="section__title">Grafik Total Penjualan Tahun 2023</h2>
+          <figure class="chart">
+            <canvas id="grafikPenjualan3" aria-label="Grafik total penjualan tahun 2023" role="img"></canvas>
+          </figure>
 
-        <div class="sidenav__drawer">
-          <small>Developed by Langit Amaravati</small>
-        </div>
-      </nav>
+          <table id="tabelPenjualanTahun" class="table-sales margin-top--40">
+            <thead>
+              <tr>
+                <th class="table-sales__column">Produk</th>
+                <th class="table-sales__column">Penjualan Tahun 2023</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sepatu</td>
+              </tr>
+              <tr>
+                <td>Baju</td>
+              </tr>
+              <tr>
+                <td>Celana</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
 
-      <!-- Start Content -->
-      <div class="content">
-        <!-- Navbar -->
-        <div class="navbar">
-          <form class="uk-search uk-search-default">
-            <a href="" class="uk-search-icon-flip" uk-search-icon></a>
-            <input class="uk-search-input" type="search" placeholder="Search" aria-label="Search">
-          </form>
+        <!-- Tabel -->
+        <section class="section section__table" id="sectionTable">
+          <h2 class="section__title">Tabel Penjualan Tahun 2023</h2>
 
-          <div class="user">
-            <p class="user__name">Hi, Langit Amaravati</p>
-            <div class="user__avatar"><i class="fi fi-sr-woman-head"></i></div>
+          <table id="tabelPenjualan" class="table-sales">
+            <thead>
+              <tr>
+                <th class="table-sales__column" @click="sortTable('name')">Bulan <button class="button button__sort"
+                    type="button" aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
+                <th class="table-sales__column" id="headerSepatu">Sepatu <button class="button button__sort"
+                    type="button" aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
+                <th class="table-sales__column">Baju<button class="button button__sort" type="button"
+                    aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
+                <th class="table-sales__column">Celana<button class="button button__sort" type="button"
+                    aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
+                <th class="table-sales__column">Total Penjualan<button class="button button__sort" type="button"
+                    aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+
+          <div class="section__custom margin-top--40">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, dolore reprehenderit fugiat fugit et
+            earum eligendi exercitationem, nam, laboriosam modi quasi asperiores corporis unde esse minus culpa
+            voluptates numquam? Ut.
           </div>
-        </div>
+        </section>
 
-        <!-- Content dashboard -->
-        <div class="dashboard">
-          <div class="dashboard__left">
+        <!-- Line chart -->
+        <section class="section section__line-chart margin-top--40" id="sectionLine">
+          <h2 class="section__title">Tren Penjualan Tahun 2023</h2>
+          <div class="chart line-chart">
+            <canvas id="lineChart"></canvas>
+          </div>
+        </section>
 
-            <section class="section section__bar-chart">
-              <h2 class="section__title">Grafik Penjualan Tahun 2023</h2>
-              <figure class="chart chart__bar">
-                <canvas id="grafikPenjualan" aria-label="Grafik penjualan tahun 2023" role="img"></canvas>
-              </figure>
-            </section>
+        <section class="section section__donut-chart margin-top--40" id="sectionPie">
+          <h2 class="section__title">Bermacam-macam Pie Chart</h2>
+          <figure class="chart chart__lingkaran">
+            <canvas id="pieChart1"></canvas>
+          </figure>
+          <figure class="chart chart__lingkaran">
+            <canvas id="pieChart2"></canvas>
+          </figure>
+          <figure class="chart chart__lingkaran">
+            <canvas id="pieChart3"></canvas>
+          </figure>
+        </section>
 
-            <div id="totalPenjualan"></div>
+        <section class="section margin-top--40 display-flex">
+          <figure class="chart chart__lingkaran">
+            <canvas id="circularProgress1"></canvas>
+          </figure>
 
-            <!-- Tabel -->
-            <section class="section section__table" id="sectionTable">
-              <h2 class="section__title">Tabel Penjualan Tahun 2023</h2>
+          <figure class="chart chart__lingkaran">
+            <canvas id="circularProgress2"></canvas>
+          </figure>
 
-              <table id="tabelPenjualan" class="table-sales">
-                <thead>
-                  <tr>
-                    <th class="table-sales__column" @click="sortTable('name')">Bulan <button class="button button__sort"
-                        type="button" aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
-                    <th class="table-sales__column" id="headerSepatu">Sepatu <button class="button button__sort"
-                        type="button" aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
-                    <th class="table-sales__column">Baju<button class="button button__sort" type="button"
-                        aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
-                    <th class="table-sales__column">Celana<button class="button button__sort" type="button"
-                        aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
-                    <th class="table-sales__column">Total Penjualan<button class="button button__sort" type="button"
-                        aria-label="sort"><i class="fi fi-sr-sort"></i></button></th>
-                  </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-              </table>
-
-              <div class="section__custom margin-top--40">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, dolore reprehenderit fugiat fugit et
-                earum eligendi exercitationem, nam, laboriosam modi quasi asperiores corporis unde esse minus culpa
-                voluptates numquam? Ut.
-              </div>
-            </section>
-
-            <!-- Line chart -->
-            <section class="section section__line-chart margin-top--40">
-              <h2 class="section__title">Tren Penjualan Tahun 2023</h2>
-              <div class="chart line-chart">
-                <canvas id="lineChart"></canvas>
-              </div>
-            </section>
-
-            <section class="section section__donut-chart margin-top--40">
-              <h2 class="section__title">Bermacam-macam Pie Chart</h2>
-              <div class="chart chart__lingkaran">
-                <canvas id="lingkaran"></canvas>
-              </div>
-              <div class="chart chart__lingkaran">
-                <canvas id="lingkaran2"></canvas>
-              </div>
-              <div class="chart chart__lingkaran">
-                <canvas id="lingkaran3"></canvas>
-              </div>
-            </section>
+          <figure class="chart chart__lingkaran">
+            <canvas id="circularProgress3"></canvas>
+          </figure>
+        </section>
 
 
+        <section class="section__custom margin-top--40">
+          <h2 class="section__title">Semacam Judul</h2>
+          <figure class="circular-progress">
+            <span class="progress-value">0%</span>
+            <!-- <figcaption>Circular progress dengan CSS dan JS</figcaption> -->
+          </figure>
+
+          <figure class="coba-circle">
+            <span class="coba-circle__angka">85%</span>
+          </figure>
+        </section>
+
+        <section class="section section__circle">
+
+          <div class="circle-chart">
+            <canvas id="circleChart1"></canvas>
+          </div>
+          <div class="circle-chart">
+            <canvas id="circleChart2"></canvas>
+          </div>
+          <div class="circle-chart">
+            <canvas id="circleChart3"></canvas>
+          </div>
+        </section>
+
+        <section class="section section__progress margin-top--40" id="sectionProgress">
+          <h2 class="section__title">Progress Bar</h2>
+          <div class="progress-chart">
+            <canvas id="horizontalBar" aria-label="Project Overview Bar Chart" role="img"></canvas>
+            <figcaption>Progress bar dengan Chart.js</figcaption>
           </div>
 
-
-          <!-- Dashboard right -->
-          <div class="dashboard__right">
-            <section class="section__custom">
-              <h2 class="section__title">Semacam Judul</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel unde nisi minima blanditiis fugiat
-                veritatis ut rerum Lorem ipsum dolor sit amet! Nihil, sit. Harum eligendi quam autem sint
-                quibusdam conterkk distinctio
-                mollitia laborum
-                distinctio.</p>
-            </section>
-
-            <section class="section section__circle">
-
-              <div class="circle-chart">
-                <canvas id="circleChart1"></canvas>
+          <figure class="progress-bar">
+            <div class="progress-bar__container">
+              <div class="progress-bar__item" data-bar="85">
+                Processing 85%
               </div>
-              <div class="circle-chart">
-                <canvas id="circleChart2"></canvas>
+            </div>
+            <div class="progress-bar__container">
+              <div class="progress-bar__item" data-bar="35">
+                Processing 35%
               </div>
-              <div class="circle-chart">
-                <canvas id="circleChart3"></canvas>
+            </div>
+            <div class="progress-bar__container">
+              <div class="progress-bar__item" data-bar="60">
+                Processing 60%
               </div>
-            </section>
-
-            <section class="section section__progress margin-top--40">
-              <h2 class="section__title">Progress Bar</h2>
-              <div class="progress-chart">
-                <canvas id="horizontalBar" aria-label="Project Overview Bar Chart" role="img"></canvas>
-                <figcaption>Progress bar dengan Chart.js</figcaption>
+            </div>
+            <div class="progress-bar__container">
+              <div class="progress-bar__item" data-bar="77">
+                Processing 77%
               </div>
+            </div>
+            <div class="progress-bar__container">
+              <div class="progress-bar__item" data-bar="43">
+                Processing 43%
+              </div>
+            </div>
+            <div class="progress-bar__container">
+              <div class="progress-bar__item" data-bar="87">
+                Processing 87%
+              </div>
+            </div>
 
-              <figure class="progress-bar">
-                <div class="progress-bar__container">
-                  <div class="progress-bar__item" data-bar="85">
-                    Processing 85%
-                  </div>
-                </div>
-                <div class="progress-bar__container">
-                  <div class="progress-bar__item" data-bar="35">
-                    Processing 35%
-                  </div>
-                </div>
-                <div class="progress-bar__container">
-                  <div class="progress-bar__item" data-bar="60">
-                    Processing 60%
-                  </div>
-                </div>
-                <div class="progress-bar__container">
-                  <div class="progress-bar__item" data-bar="77">
-                    Processing 77%
-                  </div>
-                </div>
-                <div class="progress-bar__container">
-                  <div class="progress-bar__item" data-bar="43">
-                    Processing 43%
-                  </div>
-                </div>
-                <div class="progress-bar__container">
-                  <div class="progress-bar__item" data-bar="87">
-                    Processing 87%
-                  </div>
-                </div>
+            <figcaption>Progress bar dengan vanilla JavaScript</figcaption>
+          </figure>
+        </section>
 
-                <figcaption>Progress bar dengan vanilla JavaScript</figcaption>
-              </figure>
+        <!-- Section Other -->
+        <section class="section section__other margin-top--40" id="sectionOther">
+          <h2 class="section__title">Pyramid Chart</h2>
+          <figure class="chart">
+            <canvas id="pyramidChart"></canvas>
+          </figure>
+        </section>
 
-
-            </section>
-
-
-          </div>
-        </div>
       </div>
     </main>
 
@@ -257,6 +296,8 @@
     <!-- Chartjs -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script type="text/javascript"
+      src="https://cdn.jsdelivr.net/gh/Udemology/chartjs-plugin-sorting@main/chartjs-plugin-sorting.js"></script>
     <!-- <script src="/src/js/main.js"></script> -->
     <script type="module" src="/src/js/script.js"></script>
     <script src="/src/js/progress.js"></script>

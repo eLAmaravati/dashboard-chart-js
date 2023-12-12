@@ -27,8 +27,3 @@ document.addEventListener("DOMContentLoaded", function () {
   handleScroll();
   
 });
-
-// export function addScrollListener() {
-//   window.addEventListener("scroll", handleScroll);
-//   handleScroll();
-// }

@@ -8,6 +8,7 @@ body {
   background-color: #F2F5FA;
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -28,6 +29,7 @@ button {
 }
 
 .main {
+  margin-left: 250px;
   padding: 20px 40px;
 }
 
@@ -63,8 +65,6 @@ button {
 }
 
 .dashboard {
-  display: grid;
-  grid-template-columns: auto;
   gap: 40px;
   padding: 40px;
 }
@@ -169,8 +169,8 @@ td:first-child {
   padding-top: 20px;
 }
 .chart__lingkaran {
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
 }
 
 .section__donut-chart {
@@ -247,6 +247,49 @@ td:first-child {
   margin-left: 250px;
   padding: 20px 40px;
   text-align: center;
+}
+
+.circular-progress {
+  position: relative;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  background: conic-gradient(#463BFB 3.6deg, #ededed 0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-progress::before {
+  content: "";
+  position: absolute;
+  height: 210px;
+  width: 210px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.progress-value {
+  position: relative;
+  font-size: 40px;
+  font-weight: 600;
+  color: #463BFB;
+}
+
+.coba-circle {
+  position: relative;
+  height: 250px;
+  width: 250px;
+  background-color: #e5e5e5;
+  border-radius: 50%;
+}
+.coba-circle__angka {
+  background-color: #463BFB;
+  position: absolute;
+}
+
+.display-flex {
+  display: flex;
 }
 
 /*# sourceMappingURL=style.css.map */

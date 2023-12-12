@@ -17,7 +17,10 @@ export async function createLineChart() {
           borderWidth: 3,
           borderColor: '#20D1A8',
           backgroundColor: '#20D1A8',
-          lineTension: 0.4
+          lineTension: 0.4,
+          pointBackgroundColor: '#fff',
+          pointRadius: 5,
+          pointHoverRadius: 7,
         },
         {
           label: 'Baju',
@@ -25,7 +28,10 @@ export async function createLineChart() {
           borderWidth: 3,
           borderColor: '#463BFB',
           backgroundColor: '#463BFB',
-          lineTension: 0.4
+          lineTension: 0.4,
+          pointBackgroundColor: '#fff',
+          pointRadius: 5,
+          pointHoverRadius: 7,
         },
         {
           label: 'Celana',
@@ -33,7 +39,10 @@ export async function createLineChart() {
           borderWidth: 3,
           borderColor: 'rgba(255, 206, 86, 1)',
           backgroundColor: 'rgba(255, 206, 86, 1)',
-          lineTension: 0.4
+          lineTension: 0.4,
+          pointBackgroundColor: '#fff',
+          pointRadius: 5,
+          pointHoverRadius: 7,
         },
       ]
     },
@@ -50,8 +59,15 @@ export async function createLineChart() {
         legend: {
           display: false,
         }
+      },
+      elements: {
+        point: {
+          borderColor: 'red',
+          borderWidth: 5,
+        }
       }
     }
   });
   // Akhir line chart
 }
+
